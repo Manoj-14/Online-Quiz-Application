@@ -1,0 +1,19 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  transition: box-shadow ease-in-out 300ms;
+  border-width: 2px;
+  border-radius: 25px 0 25px 0 !important;
+}
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+.form-check > label {
+  cursor: pointer;
+}

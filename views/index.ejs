@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Quiz Application</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <p class="h2 text-center">Welcome to Onlie Quiz Application</p>
+      <div class="container w-50">
+        <form action="/authenticate" method="post" class="form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              id="email"
+              class="form-control btn btn-primary"
+              value="Start Quiz"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

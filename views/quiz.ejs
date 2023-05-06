@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/js/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <div class="container w-75">
+      <h1 class="text-center">Quiz</h1>
+      <h5 class="text-danger">* Please Attend All the questions</h5>
+      <form action="/verifyResults" class="form" method="post">
+        <% for( let index = 0; index < questions.length; index++ ) { %>
+        <div class="card form-group p-2">
+          <label class="h4" class="form-label card-title"
+            ><%= index + 1%> <%= questions[index].question %>
+            <span class="text-danger">*</span></label
+          >
+          <div class="card-body">
+            <% for( let op = 0; op < questions[index].options.length; op++ ) {
+            %>
+            <div class="form-check">
+              <input
+                required
+                type="radio"
+                name="<%=index%>"
+                id="op<%=index%><%=op%>"
+                class="form-check-input"
+                value="<%=questions[index].options[op]%>"
+              />
+              <label class="form-check-label" for="op<%=index%><%=op%>"
+                ><%=questions[index].options[op]%></label
+              >
+            </div>
+            <% } %>
+          </div>
+        </div>
+        <% } %>
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Submit"
+            class="btn btn-block btn-primary"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="createGraph('<%= results %>')">
+    <div class="wrapper">
+      <h2>Quiz Results</h2>
+      <h1><%= results[0] *10 %>%</h1>
+      <span>(Pass percentage is 50%)</span>
+      <div>
+        <% if ((results[0]/10)*100 <50) { %>
+        <p class="h5 text-danger">Better luck next time</p>
+        <% } else if ((results[0]/10)*100 >=50) { %>
+        <p class="h5 text-success">You have successfully passed the quiz</p>
+        <% } %>
+      </div>
+      <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas>
+    </div>
+
+    <script>
+      createGraph = function (results) {
+        var xValues = ["Incorrect", "Correct"];
+        var barColors = ["#3cb371", "#ff0000"];
+        var yValues = results.split(",").map((values) => parseInt(values));
+        new Chart("myChart", {
+          type: "pie",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                backgroundColor: barColors,
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            title: {
+              display: false,
+              text: "Quiz results",
+            },
+          },
+        });
+      };
+    </script>
+  </body>
+</html>
